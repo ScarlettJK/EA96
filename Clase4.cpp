@@ -8,26 +8,8 @@
 
 //Intento 2
 
-int countVowels(char* phrase) {
-    //cuenta las vocales de una frase
-    for(int i = 0; i < strlen(phrase); i++) {
-        if(phrase[i] == 'a' ||
-            phrase[i] == 'e' ||
-            phrase[i] == 'i' ||
-            phrase[i] == 'o' ||
-            phrase[i] == 'u') {
-            phrase[i]++;
-
-        }
-
-    }
-    return strlen(phrase);
-}
-
-
-/* Intento 1
-
-    int vocales = 0;
+int countVowels(char* phrase) { //cuenta las vocales de una frase
+int vocales = 0;
     for(int i = 0; phrase[i] != '\0'; i++) {
         char letra =  tolower (phrase[i]);
             if ( letra == 'a' ||
@@ -41,22 +23,26 @@ int countVowels(char* phrase) {
     }
     return vocales;
 }
-*/
 
 
 
+/*
 void countConsonants(char* phrase){ //cuenta las consonantes
     int consonantes = 0;
-    int i = 0;
-    while(phrase[i] != '\0') {
-        if (isalpha(phrase[i])) {
-            consonantes++;
-        }
-        i++;
+    for(int i = 0; phrase[i] != '\0'; i++) {
+        char letra =  tolower (phrase[i]);
+            if ( isalphanum letra == 'a' ||
+             letra == 'e' ||
+             letra == 'i' ||
+             letra == 'o' ||
+             letra == 'u'
+             ){
+              vocales++;
+              }
     }
-
+    return vocales;
 }
-
+/*
 void getInput(char* phrase){ //captura la frase del usuario
   printf("Ingrese una frase: \n");
   scanf("%s", phrase);
@@ -64,8 +50,8 @@ void getInput(char* phrase){ //captura la frase del usuario
 
   }
 
-
+*/
 int main(){
-    void getInput();
+   // void getInput();
 
 }
