@@ -31,7 +31,7 @@ void countConsonants(char* phrase){ //cuenta las consonantes
     int consonantes = 0;
     for(int i = 0; phrase[i] != '\0'; i++) {
         char letra =  tolower (phrase[i]);
-            if ( isalphanum letra == 'a' ||
+            if ( isalpha letra == 'a' ||
              letra == 'e' ||
              letra == 'i' ||
              letra == 'o' ||
