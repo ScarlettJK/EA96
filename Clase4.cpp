@@ -26,21 +26,21 @@ int vocales = 0;
 
 
 
-/*
+
 void countConsonants(char* phrase){ //cuenta las consonantes
     int consonantes = 0;
     for(int i = 0; phrase[i] != '\0'; i++) {
         char letra =  tolower (phrase[i]);
-            if ( isalpha letra == 'a' ||
+            if ( isalpha (letra) && ! (letra == 'a' ||
              letra == 'e' ||
              letra == 'i' ||
              letra == 'o' ||
              letra == 'u'
              ){
-              vocales++;
+              consonantes++;
               }
     }
-    return vocales;
+    return consonantes;
 }
 /*
 void getInput(char* phrase){ //captura la frase del usuario
