@@ -36,22 +36,22 @@ void countConsonants(char* phrase){ //cuenta las consonantes
              letra == 'i' ||
              letra == 'o' ||
              letra == 'u'
-             ){
+             )){
               consonantes++;
               }
     }
-    return consonantes;
+   // return consonantes;
 }
-/*
+
 void getInput(char* phrase){ //captura la frase del usuario
   printf("Ingrese una frase: \n");
   scanf("%s", phrase);
 
+}
 
-  }
 
-*/
+
 int main(){
-   // void getInput();
+    void getInput();
 
 }
