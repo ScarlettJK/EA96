@@ -1,0 +1,93 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'hourglassSum' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts 2D_INTEGER_ARRAY arr as parameter.
+     */
+
+    public static int hourglassSum(List<List<Integer>> arr) {
+
+    List<List<Integer>> sumas = new ArrayList<>();
+    //En la linea 24 se esta declarando un arreglo bidimensional llamado sumas, de tipo Integer
+
+    int n = 4;
+    int result = 0;
+    //En la linea 27 se declara n, el cual sera el limite de relojes de arena que se pueden recorrer en una fila
+    //En la linea 28 se declara result con valor 0 pues se utilizara despues para retornar el resultado obtenido
+
+    for(int i = 0; i < n; i++){
+        sumas.add(new ArrayList());
+        for(int j = 0; j < n; j++){
+            sumas.get(i).add(0);
+        }
+    }
+    //En las lineas 32 a 37 se inicializa la matriz sumas con un tamaño de 4 x 4 y se llena de 0 mediante .get(i).add(0) y ambos ciclos for para recorrer dicha matriz
+
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            int suma = arr.get(i).get(j) + arr.get(i).get(j+1) + arr.get(i).get(j + 2) + arr.get(i+1).get(j+1) + arr.get(i+2).get(j) + arr.get(i+2).get(j+1) + arr.get(i+ 2).get(j + 2);
+
+        sumas.get(i).set(j,suma);
+        }
+    }
+    //Para cada posicion de (i, j) se va realizando la suma de los relojes de arena mediante la linea 42 y ambos for para recorrer la matriz
+    //Luego el resultado de la suma se almacena en la matriz sumas
+
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(sumas.get(i).get(j) > result){
+                result = sumas.get(i).get(j);
+            }
+        }
+    }
+    //Se recorre la matriz sumas para encontrar el reloj maximo y si el valor actual de sumas.get(i).get(j)es mayor que result, se actualiza result
+
+    return result;
+    //Devuelve la suma de reloj mas grande
+
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        List<List<Integer>> arr = new ArrayList<>();
+
+        IntStream.range(0, 6).forEach(i -> {
+            try {
+                arr.add(
+                    Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+                        .map(Integer::parseInt)
+                        .collect(toList())
+                );
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        int result = Result.hourglassSum(arr);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
