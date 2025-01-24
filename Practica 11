@@ -1,0 +1,139 @@
+import java.util;
+
+public class ParesQueSuman {
+
+    public static int contarPares(int[] arreglo, int k) {
+        int contador = 0;
+        int n = arreglo.length;
+
+        
+        for (int i = 0; i < n; i++) {
+            
+            for (int j = i + 1; j < n; j++) {
+                
+                if (arreglo[i] + arreglo[j] == k) {
+                    contador++;
+                }
+            }
+        }
+
+        return contador;
+    }
+
+    public static void main(String[] args) {
+        
+        int[] arreglo1 = {1, 5, 7, -1, 5};
+        int k1 = 6;
+        System.out.println(contarPares(arreglo1, k1));  
+
+        
+        int[] arreglo2 = {1, 2, 3, 4};
+        int k2 = 5;
+        System.out.println(contarPares(arreglo2, k2));  
+
+        
+        int[] arreglo3 = {1, 1, 1, 1, 1, 1};
+        int k3 = 2;
+        System.out.println(contarPares(arreglo3, k3)); 
+    }
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+public class Main {
+    
+    public static boolean isPalindrome(String palabra){
+        palabra=palabra.toLowerCase();
+        
+        char[]caracteres=palabra.toCharArray();
+        
+        int longitud=caracteres.length;
+        
+        for(int i=0; i<longitud/2; i++){
+            if(caracteres[i] != caracteres[longitud-1-i]){
+                return false; 
+            }
+        }
+        return true; 
+    }
+
+    public static void contarPalindromos() {
+        Scanner scanner=new Scanner(System.in);
+        
+        System.out.println("Ingrese una cadena de palabras:");
+        String cadena=scanner.nextLine();
+        String[] palabras=cadena.split(" ");
+        int contadorPalindromos=0;
+        
+        for(String palabra : palabras){
+            if(isPalindrome(palabra))  
+                contadorPalindromos++;
+        }
+        
+        System.out.println("Cantidad de palíndromos: "+contadorPalindromos);
+
+        scanner.close();
+    }
+
+    public static void main(String[] args) {
+        contarPalindromos(); 
+    }
+}
+
+
+---------------------------------------------------------------------------------------------------------
+
+
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class Main
+{
+public static void main(String[] args) {
+
+int valor1= 0;
+int valor2= 0;
+Scanner sc =new Scanner(System.in);
+
+try{
+System.out.println("Ingresa el primer numero");
+valor1 = sc.nextInt();
+}catch(InputMismatchException e){
+System.out.println("\nError: Entrada no válida");
+
+}
+
+try{
+System.out.println("\nIngresa el segundo numero:");
+valor2 = sc.nextInt();
+}catch(InputMismatchException e){
+System.out.println("\nError: Entrada no válida");
+
+}
+
+
+
+try{
+if (valor1 >= 0 && valor2 >= 0){
+
+}
+
+int div = valor1 / valor2;
+System.out.println("El resultado de la división es: "+ div);
+
+} catch( ArithmeticException e){
+System.out.println("Error: División por 0 no permitida" + e.getMessage());
+}
+
+
+
+finally {
+System.out.println("Fin del programa");
+}
+
+}
+
+}
